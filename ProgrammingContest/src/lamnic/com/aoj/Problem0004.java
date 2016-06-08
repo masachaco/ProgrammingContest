@@ -1,13 +1,14 @@
-package lamnic.com;
+package lamnic.com.aoj;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+import lamnic.com.util.collections.SampleInputReader;
+
+public class Problem0004 {
 	public static void main(String[] args) {
-		// List<String> sampleInput = SampleInputReader.read("0004", "sample2");
-		List<String> sampleInput = getInput();
+		List<String> sampleInput = SampleInputReader.read("0004", "sample1");
 		sampleInput.stream().forEach(d -> solve(d));
 	}
 

@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		// List<String> sampleInput = SampleInputReader.read("0005", "sample1");
-		List<String> sampleInput = getInput();
+		List<String> sampleInput = getStdInputToList();
 		sampleInput.stream().forEach(d -> solve(d));
 	}
 
@@ -26,7 +26,7 @@ public class Main {
 	/*
 	 * 標準入力を一旦すべて受け取りStringのListにする。
 	 */
-	private static List<String> getInput() {
+	private static List<String> getStdInputToList() {
 		List<String> strList = new ArrayList<>();
 		try (Scanner scan = new Scanner(System.in)) {
 			while (scan.hasNextLine()) {

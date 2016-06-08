@@ -1,23 +1,25 @@
-package lamnic.com;
+package lamnic.com.aoj;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+import lamnic.com.util.collections.SampleInputReader;
+
+public class Problem0006 {
 	public static void main(String[] args) {
-		// List<String> sampleInput = SampleInputReader.read("0007", "sample1");
-		List<String> sampleInput = getStdInputToList();
+		List<String> sampleInput = SampleInputReader.read("0006", "sample1");
+		// List<String> sampleInput = getStdInputToList();
 		sampleInput.stream().forEach(d -> solve(d));
 	}
 
 	private static void solve(String input) {
-		long week = Long.parseLong(input);
-		long amount = 100000;
-		for (int i = 0; i < week; i++) {
-			amount = (long) Math.ceil((amount * 1.05) / 1000) * 1000;
+		String result = "";
+		char[] charArray = input.toCharArray();
+		for (int i = 0; i < charArray.length; i++) {
+			result = charArray[i] + result;
 		}
-		System.out.println(amount);
+		System.out.println(result);
 	}
 
 	/*

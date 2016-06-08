@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import lamnic.com.util.collections.SampleInputReader;
+import lamnic.com.util.SampleInputReader;
 
 public class Problem0005 {
 	public static void main(String[] args) {

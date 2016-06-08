@@ -8,10 +8,11 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.function.Function;
 
+import lamnic.com.util.collections.SampleInputReader;
+
 public class Problem0001 {
 	public static void main(String[] args) {
-		// List<String> sampleInput = SampleInputReader.read("0001", "sample1");
-		List<String> inputStrings = getInput();
+		List<String> inputStrings = SampleInputReader.read("0001", "sample1");
 		List<Long> list = inputStrings.stream().map(toLong()).sorted(longDesc()).collect(toList());
 
 		for (int i = 0; i < 3; i++) {

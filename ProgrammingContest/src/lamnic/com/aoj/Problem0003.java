@@ -6,15 +6,29 @@ import java.util.Scanner;
 
 import lamnic.com.util.collections.SampleInputReader;
 
-public class Problem0002 {
+public class Problem0003 {
 	public static void main(String[] args) {
-		List<String> sampleInput = SampleInputReader.read("0002", "sample1");
+		List<String> sampleInput = SampleInputReader.read("0003", "sample1");
+		sampleInput.remove(0);
 		sampleInput.stream().forEach(d -> solve(d));
 	}
 
-	private static void solve(String d) {
-		String[] split = d.split(" ");
-		System.out.println(String.format("%d", toLong(split[0]) + toLong(split[1])).length());
+	private static void solve(String input) {
+		String[] token = input.split(" ");
+
+		for (int i = 0; i < 3; i++) {
+			if (isRightTriangle(toLong(token[i % 3]), toLong(token[(i + 1) % 3]), toLong(token[(i + 2) % 3]))) {
+				System.out.println("YES");
+				return;
+			}
+		}
+
+		System.out.println("NO");
+		return;
+	}
+
+	private static boolean isRightTriangle(long long1, long long2, long long3) {
+		return long3 == Math.sqrt(Math.pow(long1, 2) + Math.pow(long2, 2));
 	}
 
 	private static long toLong(String token) {

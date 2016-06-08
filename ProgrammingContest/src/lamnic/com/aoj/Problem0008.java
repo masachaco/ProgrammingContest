@@ -1,4 +1,4 @@
-package lamnic.com;
+package lamnic.com.aoj;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -8,7 +8,7 @@ import java.util.Set;
 
 import lamnic.com.util.SampleInputReader;
 
-public class Main {
+public class Problem0008 {
 	public static void main(String[] args) {
 		List<String> sampleInput = SampleInputReader.read("0008", "sample1");
 		// List<String> sampleInput = getStdInputToList();

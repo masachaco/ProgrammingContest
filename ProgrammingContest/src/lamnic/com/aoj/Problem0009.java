@@ -1,4 +1,4 @@
-package lamnic.com;
+package lamnic.com.aoj;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -7,12 +7,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Main {
+import lamnic.com.util.SampleInputReader;
+
+public class Problem0009 {
 	private static Map<Long, Long> primeNumeberCounter = new HashMap<>();
 
 	public static void main(String[] args) {
-		// List<String> sampleInput = SampleInputReader.read("0009", "sample1");
-		List<String> sampleInput = getStdInputToList();
+		List<String> sampleInput = SampleInputReader.read("0009", "sample1");
+		// List<String> sampleInput = getStdInputToList();
 		initCounter();
 		sampleInput.stream().forEach(d -> solve(d));
 	}

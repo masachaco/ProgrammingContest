@@ -128,17 +128,17 @@ public class Problem1136 {
 	 * 標準入力を一旦すべて受け取りStringのQueueにする。
 	 */
 	private static Queue<String> getStdInputToQueue() {
-		return (Queue<String>) extracted(new LinkedList<>());
+		return (Queue<String>) getStrdInputToCollection(new LinkedList<>());
 	}
 
 	/*
 	 * 標準入力を一旦すべて受け取りStringのListにする。
 	 */
 	private static List<String> getStdInputToList() {
-		return (List<String>) extracted(new ArrayList<>());
+		return (List<String>) getStrdInputToCollection(new ArrayList<>());
 	}
 
-	private static Collection<String> extracted(Collection<String> strCollection) {
+	private static Collection<String> getStrdInputToCollection(Collection<String> strCollection) {
 		try (Scanner scan = new Scanner(System.in)) {
 			while (scan.hasNextLine()) {
 				strCollection.add(scan.nextLine());

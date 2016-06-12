@@ -1,4 +1,4 @@
-package lamnic.com;
+package lamnic.com.aoj;
 
 import static java.util.stream.Collectors.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main {
+public class Problem1136 {
 
 	public static void main(String[] args) {
 		// Queue<String> inputs = SampleInputReader.readByQueue("1136",

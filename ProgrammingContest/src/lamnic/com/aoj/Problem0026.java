@@ -1,4 +1,4 @@
-package lamnic.com;
+package lamnic.com.aoj;
 
 import static java.util.stream.Collectors.*;
 
@@ -9,8 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Main {
-
+public class Problem0026 {
 	private static final int SMALL = 1;
 	private static final int MEDIUM = 2;
 	private static final int LARGE = 3;

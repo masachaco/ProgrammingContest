@@ -1,4 +1,4 @@
-package lamnic.com;
+package lamnic.com.aoj;
 
 import static java.util.stream.Collectors.*;
 
@@ -8,8 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
-
+public class Problem0012 {
 	public static void main(String[] args) {
 		// List<String> inputs = SampleInputReader.read("0012", "sample1");
 		List<String> inputs = getStdInputToList();
@@ -82,5 +81,4 @@ public class Main {
 		}
 		return strList;
 	}
-
 }

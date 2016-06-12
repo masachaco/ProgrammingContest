@@ -1,4 +1,4 @@
-package lamnic.com;
+package lamnic.com.aoj;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Main {
+public class Problem0011 {
 
 	public static void main(String[] args) {
 		// List<String> inputs = SampleInputReader.read("0011", "sample1");
@@ -16,16 +16,16 @@ public class Main {
 	}
 
 	private static void solve(List<String> inputs) {
-		long numberOfLine = Long.parseLong(inputs.get(0));
+		long numberOfPositions = Long.parseLong(inputs.get(0));
 		inputs.remove(0);
 		inputs.remove(0);
 
 		Map<Integer, Integer> goals = new HashMap<>();
-		for (int startIndex = 1; startIndex <= numberOfLine; startIndex++) {
-			goals.put(getGoalPosition(startIndex, inputs, 0), startIndex);
+		for (int startPosition = 1; startPosition <= numberOfPositions; startPosition++) {
+			goals.put(getGoalPosition(startPosition, inputs, 0), startPosition);
 		}
 
-		for (int i = 1; i <= numberOfLine; i++) {
+		for (int i = 1; i <= numberOfPositions; i++) {
 			System.out.println(goals.get(i));
 		}
 	}

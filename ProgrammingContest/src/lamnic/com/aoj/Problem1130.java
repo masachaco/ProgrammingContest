@@ -1,13 +1,11 @@
-package lamnic.com;
+package lamnic.com.aoj;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main {
+public class Problem1130 {
 	private static String[][] floor = null;
 	private static boolean[][] flag = null;
 	private static int tileCounter = 0;
@@ -16,7 +14,7 @@ public class Main {
 	private static int floorX = 0;
 	private static int floorY = 0;
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		// Queue<String> inputs = SampleInputReader.readByQueue("1130",
 		// "sample1");
 		Queue<String> inputs = getStdInputByQueue();
@@ -63,20 +61,20 @@ public class Main {
 	}
 
 	private static void move(int x, int y) {
-		markMoved(x, y);
+		markVisited(x, y);
 
 		for (int i = 0; i < dx.length; i++) {
-			if (canMove(x + dx[i], y + dy[i])) {
+			if (canVisit(x + dx[i], y + dy[i])) {
 				move(x + dx[i], y + dy[i]);
 			}
 		}
 	}
 
-	private static boolean canMove(int x, int y) {
+	private static boolean canVisit(int x, int y) {
 		return (x >= 0 && y >= 0 && x < floorX && y < floorY && !flag[y][x] && !floor[y][x].equals("#"));
 	}
 
-	private static void markMoved(int x, int y) {
+	private static void markVisited(int x, int y) {
 		tileCounter++;
 		flag[y][x] = true;
 	}
@@ -86,13 +84,6 @@ public class Main {
 	 */
 	private static Queue<String> getStdInputByQueue() {
 		return (Queue<String>) getStrdInputByCollection(new LinkedList<>());
-	}
-
-	/*
-	 * 標準入力を一旦すべて受け取りStringのListにする。
-	 */
-	private static List<String> getStdInputByList() {
-		return (List<String>) getStrdInputByCollection(new ArrayList<>());
 	}
 
 	private static Collection<String> getStrdInputByCollection(Collection<String> strCollection) {

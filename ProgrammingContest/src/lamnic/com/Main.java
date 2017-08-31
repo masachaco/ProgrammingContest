@@ -1,109 +1,38 @@
 package lamnic.com;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedList;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class Main {
-	private static String[][] floor = null;
-	private static boolean[][] flag = null;
-	private static int tileCounter = 0;
-	private static int[] dx = { 0, 0, 1, -1 };
-	private static int[] dy = { 1, -1, 0, 0 };
-	private static int floorX = 0;
-	private static int floorY = 0;
+    public static void main(String[] args) {
+        List<String> inputStrings = getInput();    // [1]. 標準入力を一旦全部読み取って、Listに格納
 
-	public static void main(String[] args) throws Exception {
-		// Queue<String> inputs = SampleInputReader.readByQueue("1130",
-		// "sample1");
-		Queue<String> inputs = getStdInputByQueue();
-		solve(inputs);
-	}
+        List<Long> list = inputStrings.stream()    //
+                .map(Long::parseLong)              // [2]. Stringなので、Longに変換
+                .sorted(Comparator.reverseOrder()) // [3]. Longの値を降順でソートして
+                .collect(toList());                // [4]. 再度リストにする
 
-	private static void solve(Queue<String> inputs) {
-		String floorSizeLine = null;
-		while (!(floorSizeLine = inputs.poll()).equals("0 0")) {
+        for (int i = 0; i < 3; i++) {
+            System.out.println(list.get(i));       // [5]. リストの先頭から3つを標準出力に出力
+        }
+    }
 
-			initialize(floorSizeLine);
-
-			// スタート地点の座標
-			int iX = 0;
-			int iY = 0;
-
-			for (int i = 0; i < floorY; i++) {
-				// フロアを読み込む
-				String inputLine = inputs.poll();
-				floor[i] = inputLine.split("");
-
-				// 初期位置が見つかったらその場所を記憶
-				int initPointX = inputLine.indexOf("@");
-				if (initPointX != -1) {
-					iX = initPointX;
-					iY = i;
-				}
-			}
-
-			// スタート地点から移動できるところを全部移動してみる
-			move(iX, iY);
-			System.out.println(tileCounter);
-		}
-	}
-
-	private static void initialize(String floorSizeLine) {
-		String[] floorSizeToken = floorSizeLine.split(" ");
-
-		floorX = Integer.parseInt(floorSizeToken[0]);
-		floorY = Integer.parseInt(floorSizeToken[1]);
-		floor = new String[floorY][];
-		flag = new boolean[floorY][floorX];
-		tileCounter = 0;
-	}
-
-	private static void move(int x, int y) {
-		markMoved(x, y);
-
-		for (int i = 0; i < dx.length; i++) {
-			if (canMove(x + dx[i], y + dy[i])) {
-				move(x + dx[i], y + dy[i]);
-			}
-		}
-	}
-
-	private static boolean canMove(int x, int y) {
-		return (x >= 0 && y >= 0 && x < floorX && y < floorY && !flag[y][x] && !floor[y][x].equals("#"));
-	}
-
-	private static void markMoved(int x, int y) {
-		tileCounter++;
-		flag[y][x] = true;
-	}
-
-	/*
-	 * 標準入力を一旦すべて受け取りStringのQueueにする。
-	 */
-	private static Queue<String> getStdInputByQueue() {
-		return (Queue<String>) getStrdInputByCollection(new LinkedList<>());
-	}
-
-	/*
-	 * 標準入力を一旦すべて受け取りStringのListにする。
-	 */
-	private static List<String> getStdInputByList() {
-		return (List<String>) getStrdInputByCollection(new ArrayList<>());
-	}
-
-	private static Collection<String> getStrdInputByCollection(Collection<String> strCollection) {
-		try (Scanner scan = new Scanner(System.in)) {
-			while (scan.hasNextLine()) {
-				strCollection.add(scan.nextLine());
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return strCollection;
-	}
-
+    /**
+     * 標準入力を一旦すべて受け取りStringのListにする。
+     */
+    private static List<String> getInput() {
+        List<String> strList = new ArrayList<>();
+        try (Scanner scan = new Scanner(System.in)) {
+            while (scan.hasNextLine()) {
+                strList.add(scan.nextLine());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return strList;
+    }
 }
